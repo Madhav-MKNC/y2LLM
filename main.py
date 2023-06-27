@@ -59,11 +59,12 @@ except KeyboardInterrupt:
 
 """ Building the Knowledge Base """
 with Path('clean_data.txt').open('r') as file:
-    lines = file.read().splitlines()
-chunks = [' '.join(lines[i:i+5]) for i in range(0, len(lines), 5)] # Group the lines into chunks of 5
+    chunks = file.read().splitlines()
 data = pd.DataFrame(chunks, columns=['context'])
 data['name'] = 'youtube' # Add an index column and a name column
 data.drop_duplicates(subset='context', keep='first', inplace=True)
+
+print(len(data))
 # print(data)
 
 
