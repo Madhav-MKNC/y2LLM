@@ -38,7 +38,7 @@ try:
     get_transcript_from_ytchannel(
         api_key=API_KEY,
         channel_id=CHANNEL_ID,
-        no_of_videos=1, 
+        no_of_videos=50, 
         output_file='data.txt'
     )
 except KeyboardInterrupt:

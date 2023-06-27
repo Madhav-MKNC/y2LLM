@@ -15,7 +15,7 @@ if __name__ == "__main__":
     print("\n[+] Installed")
 
     # running code
-    print("[+] run 'python main.py' or 'python3 main.py'")
+    print("[+] run 'python main.py' or 'python3 main.py'\n")
     try:
         os.system('python main.py')
     except:
