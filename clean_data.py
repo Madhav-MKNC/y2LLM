@@ -1,7 +1,6 @@
 # cleans the data 
 
 from langchain.chat_models.openai import ChatOpenAI
-from concurrent.futures import ThreadPoolExecutor
 import tiktoken
 from pathlib import Path
 from langchain.schema import (
@@ -9,7 +8,7 @@ from langchain.schema import (
     SystemMessage
 )
 
-from tqdm import tqdm
+from tqdm.auto import tqdm
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -24,7 +23,7 @@ def call_openai_api(chunk):
     response = chat(messages)
     return response.content.strip()
 
-def split_into_chunks(text, n_tokens=100):
+def split_into_chunks(text, n_tokens=300):
     encoding = tiktoken.encoding_for_model(MODEL)
     tokens = encoding.encode(text)
     chunks = []

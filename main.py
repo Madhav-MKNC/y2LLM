@@ -38,7 +38,7 @@ try:
     get_transcript_from_ytchannel(
         api_key=API_KEY,
         channel_id=CHANNEL_ID,
-        no_of_videos=50, 
+        no_of_videos=1, 
         output_file='data.txt'
     )
 except KeyboardInterrupt:
@@ -59,9 +59,9 @@ except KeyboardInterrupt:
 
 """ Building the Knowledge Base """
 with Path('clean_data.txt').open('r') as file:
-    chunks = file.read().splitlines()
+    chunks = file.readlines()
 data = pd.DataFrame(chunks, columns=['context'])
-data['name'] = 'youtube' # Add an index column and a name column
+data['name'] = 'youtube'
 data.drop_duplicates(subset='context', keep='first', inplace=True)
 
 print(len(data))
